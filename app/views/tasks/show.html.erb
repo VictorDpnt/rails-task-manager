@@ -1,0 +1,17 @@
+<div class="container">
+<h1><%= @task.title %></h1>
+<h3><%= @task.details %></h3>
+
+<p><%= @task.completed ? "Cette tache a été faite" : "Cette tâche n'a pas encore été faite " %></p>
+<div class="d-flex align-items-center">
+<input type="checkbox" name="" id="" <%= @task.completed ? "checked" : "" %>>
+
+<p>Marquer cette tâche comme fait</p>
+</div>
+<p><%= link_to " <- Afficher la list", tasks_path %></p>
+<p><%= link_to " Edit", edit_path %></p>
+<p><%= link_to "Delete",
+  destroy_path(@task),
+  data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+%></p>
+</div>
